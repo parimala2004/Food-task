@@ -1,22 +1,55 @@
 import 'package:flutter/material.dart';
+class FoodHome extends StatefulWidget {
+  const FoodHome({super.key});
 
-class food extends StatelessWidget {
-  const food({super.key});
+  @override
+  State<FoodHome> createState() => _FoodHomeState();
+}
 
+class _FoodHomeState extends State<FoodHome> {
+  int _currentIndex =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title:Text("FoodApp"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.green),
+              child: Text("Menu", style: TextStyle(color: Colors.white, fontSize: 24)),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Profile"),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           Container(
-            height: 300,
+            height: 200,
             width: double.infinity,
             color: Colors.green.shade300,
             child: Column(
+
               children: [
-                SizedBox(height: 40),
+
+                SizedBox(height: 3),
                 Padding(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -73,143 +106,167 @@ class food extends StatelessWidget {
           const SizedBox(height: 20),
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                children: [ClipRRect(
-                  borderRadius: BorderRadius.circular(19),
-                  child: Container(
-                    height: 140,
-                    width: 75,
-                    color: Colors.grey,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage("assets/images/salad.jpg"),
 
-                          ),
+              child: Row(
+                children: [Container(
+                  height: 100,
+                  width: 75,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                    Positioned(
+                    top: -50,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(19),
+                      child: Container(
+                        height: 140,
+                        width: 75,
+                        color: Colors.grey,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CircleAvatar(
+                                radius: 30,
+                                backgroundImage: AssetImage("assets/images/salad.jpg"),
+
+                              ),
+
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Salad",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+                            )
+
+                          ],
 
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Salad",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                        )
+                      ),
+                    ),
+                  ),
+                   ] ),
+                  ),
 
+                  SizedBox(width: 20),
+                   Container(
+                     height: 100,
+                     width: 75,
+                     child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Positioned(
+                          top: -50, 
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(19),
+                            child: Container(
+                              height: 140,
+                              width: 75,
+                              color: Colors.grey,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CircleAvatar(
+                                      radius: 30,
+                                      backgroundImage: AssetImage("assets/images/cofee.jpg"),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "Cofee",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
-
-                    ),
-                  ),
-                ),
+                                       ),
+                   ),
                   SizedBox(width: 20,),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(19),
-                    child: Container(
-                      height: 140,
-                      width: 75,
-                      color: Colors.grey,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage("assets/images/cofee.jpg"),
-                            ),
+                  Container(
+                    height: 100,
+                    width: 75,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                      Positioned(
+                      top: -50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(19),
+                        child: Container(
+                          height: 140,
+                          width: 75,
+                          color: Colors.grey,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: AssetImage("assets/images/cool.jpg"),
+                                ),
+
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Cool Drinks",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+                              )
+
+                            ],
 
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Cofee",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                          )
-
-                        ],
-
+                        ),
                       ),
                     ),
-                  ),
+                  ]),
+                   ),
+
+
                   SizedBox(width: 20,),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(19),
-                    child: Container(
-                      height: 140,
-                      width: 75,
-                      color: Colors.grey,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage("assets/images/cool.jpg"),
-                            ),
+                  Container(
+                    height: 100,
+                    width: 75,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                      Positioned(
+                      top: -50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(19),
+                        child: Container(
+                          height: 140,
+                          width: 75,
+                          color: Colors.grey,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: AssetImage("assets/images/fast food.jpg"),
+                                ),
+
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Fast Food",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+                              )
+
+                            ],
 
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Cool Drinks",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                          )
-
-                        ],
-
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 20,),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(19),
-                    child: Container(
-                      height: 140,
-                      width: 75,
-                      color: Colors.grey,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage("assets/images/desrt.jpg"),
-                            ),
-
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Desert",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                          )
-
-                        ],
-
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 20,),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(19),
-                    child: Container(
-                      height: 140,
-                      width: 75,
-                      color: Colors.grey,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage("assets/images/fast food.jpg"),
-                            ),
-
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Fast Food",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                          )
-
-                        ],
-
-                      ),
-                    ),
-                  )
+                  ]),),
 
                 ],
 
@@ -217,7 +274,7 @@ class food extends StatelessWidget {
               )
 
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
           Row(
             children: [
               Padding(
@@ -238,210 +295,425 @@ class food extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 20),
-                Container(
-                  height: 230,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 4,
-                        spreadRadius: 2,
+                InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("This is already finished."),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.redAccent,
+                        behavior: SnackBarBehavior.floating,
                       ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15),
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage("assets/images/pizza.jpg"),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Pizza",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.location_on, size: 14, color: Colors.red),
-                          Text(
-                            "Maritime Star",
-                            style: TextStyle(fontSize: 12),
+                    );
+
+                    Future.delayed(Duration(milliseconds: 500), () {
+                      showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (context) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Bottom Sheet",
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                SizedBox(height: 10),
+                                Text("You tapped on Pizza. Would you like to continue?"),
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context); 
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text("Alert"),
+                                          content: Text("This item is out of stock."),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(context),
+                                              child: Text("OK"),
+                                            )
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text("Alert Dialog"),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    height: 220,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(
+                            'assets/images/pizza.jpg',
+                            height: 120,
+                            width: 150,
+                            fit: BoxFit.cover,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.star, size: 14, color: Colors.orange),
-                          Text("4.5 (104)", style: TextStyle(fontSize: 12)),
-                          SizedBox(width: 10),
-                          Text("\$20", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "Pizza",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          "\$15",
+                          style: TextStyle(color: Colors.orange),
+                        )
+                      ],
+                    ),
                   ),
                 ),
 
                 SizedBox(width: 15),
-                Container(
-                  height: 230,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 4,
-                        spreadRadius: 2,
+                InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("This is already finished."),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.redAccent,
+                        behavior: SnackBarBehavior.floating,
                       ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15),
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage("assets/images/burger.jpg"),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Burger",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.location_on, size: 14, color: Colors.red),
-                          Text(
-                            "Maritime Star",
-                            style: TextStyle(fontSize: 12),
+                    );
+
+                    Future.delayed(Duration(milliseconds: 500), () {
+                      showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (context) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Bottom Sheet",
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                SizedBox(height: 10),
+                                Text("You tapped on Pizza. Would you like to continue?"),
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context); 
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text("Alert"),
+                                          content: Text("This item is out of stock."),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(context),
+                                              child: Text("OK"),
+                                            )
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text("Alert Dialog"),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    height: 220,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(
+                            'assets/images/burger.jpg',
+                            height: 120,
+                            width: 150,
+                            fit: BoxFit.cover,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.star, size: 14, color: Colors.orange),
-                          Text("4.7 (195)", style: TextStyle(fontSize: 12)),
-                          SizedBox(width: 10),
-                          Text("\$18", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "Burger",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          "\$15",
+                          style: TextStyle(color: Colors.orange),
+                        )
+                      ],
+                    ),
                   ),
                 ),
 
+
                 SizedBox(width: 15),
-                Container(
-                  height: 230,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 4,
-                        spreadRadius: 2,
+                InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("This is already finished."),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.redAccent,
+                        behavior: SnackBarBehavior.floating,
                       ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15),
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage("assets/images/fried.jpg"),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.location_on, size: 14, color: Colors.red),
-                          Text(
-                            "Maritime Star",
-                            style: TextStyle(fontSize: 12),
+                    );
+
+                    Future.delayed(Duration(milliseconds: 500), () {
+                      showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (context) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Bottom Sheet",
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                SizedBox(height: 10),
+                                Text("You tapped on KFC. Would you like to continue?"),
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context); //
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text("Alert"),
+                                          content: Text("This item is out of stock."),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(context),
+                                              child: Text("OK"),
+                                            )
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text("Alert Dialog"),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    height: 220,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(
+                            'assets/images/kfc.jpg',
+                            height: 120,
+                            width: 150,
+                            fit: BoxFit.cover,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.star, size: 14, color: Colors.orange),
-                          Text("4.7 (195)", style: TextStyle(fontSize: 12)),
-                          SizedBox(width: 10),
-                          Text("\$18", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "KFC",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          "\$15",
+                          style: TextStyle(color: Colors.orange),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(width: 15),
-                Container(
-                  height: 230,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 4,
-                        spreadRadius: 2,
+                InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("This is already finished."),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.redAccent,
+                        behavior: SnackBarBehavior.floating,
                       ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 15),
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage("assets/images/kfc.jpg"),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "KFC",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.location_on, size: 14, color: Colors.red),
-                          Text(
-                            "Maritime Star",
-                            style: TextStyle(fontSize: 12),
+                    );
+
+                    Future.delayed(Duration(milliseconds: 500), () {
+                      showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (context) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Bottom Sheet",
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                SizedBox(height: 10),
+                                Text("You tapped on Fried Rice. Would you like to continue?"),
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context); 
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text("Alert"),
+                                          content: Text("This item is out of stock."),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(context),
+                                              child: Text("OK"),
+                                            )
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text("Alert Dialog"),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    height: 220,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(
+                            'assets/images/fried.jpg',
+                            height: 120,
+                            width: 150,
+                            fit: BoxFit.cover,
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.star, size: 14, color: Colors.orange),
-                          Text("4.7 (195)", style: TextStyle(fontSize: 12)),
-                          SizedBox(width: 10),
-                          Text("\$18", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "FriedRice",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          "\$15",
+                          style: TextStyle(color: Colors.orange),
+                        )
+                      ],
+                    ),
                   ),
                 ),
+
+
               ],
             ),
           ),
+
+        ],
+
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.green,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favorite"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          
         ],
       ),
     );
