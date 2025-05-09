@@ -873,6 +873,85 @@ class _FoodHomeState extends State<FoodHome> with SingleTickerProviderStateMixin
 
             ),
             Center(child: Text("Put your favourites food here",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,fontSize: 12),)),
+            Column(
+              children: [
+
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text("Welcome", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                  ),
+                ),
+
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      height: 200,
+                      width: 300,
+                      color: Colors.blue[100],
+                      child: Image.asset("assets/images/desrt.jpg", fit: BoxFit.cover,),
+                    ),
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: AssetImage("assets/images/fried.jpg"),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -30,
+                      child: Container(
+                        width: 300,
+                        height: 50,
+                        color: Colors.black45,
+                        child: Center(
+                          child: Text("Candle Light", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 40),
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text("Select Here", style: TextStyle(fontSize: 16,color: Colors.red),
+                    ),
+                  ),
+                ),
+
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Text("Adjust Brightness", style: TextStyle(fontSize: 18),
+                      ),
+                      Slider(
+                        value: _sliderValue,
+                        min: 0,
+                        max: 100,
+                        divisions: 10,
+                        label: _sliderValue.round().toString(),
+                        onChanged: (value) {
+                          setState(() {
+                            _sliderValue = value;
+                          });
+                        },
+                      ),
+                      Text("Brightness: ${_sliderValue.toInt()}%"),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 20),
+              ],
+            )
           ]
       ),
       bottomNavigationBar: BottomNavigationBar(
